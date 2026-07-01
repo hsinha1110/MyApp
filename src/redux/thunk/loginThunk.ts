@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import { LoginRequest } from '@/typing/auth.types';
 import { loginService } from '../services/loginService';
 import { ASYNC_ROUTES } from '../constants';
+import { secureStorage } from '@/utils/secureStorage';
 
 export const loginAsyncThunk = createAsyncThunk(
   ASYNC_ROUTES.LOGIN,
@@ -10,7 +10,17 @@ export const loginAsyncThunk = createAsyncThunk(
     try {
       const response = await loginService(data);
 
-      return response;
+      await secureStorage.setItem(
+        'AUTH_TOKEN',
+        response.data.tokens.accessToken,
+      );
+
+      await secureStorage.setItem(
+        'REFRESH_TOKEN',
+        response.data.tokens.refreshToken,
+      );
+
+      return response.data;
     } catch (error: any) {
       return rejectWithValue(
         error?.response?.data?.message ??

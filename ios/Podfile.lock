@@ -3,6 +3,7 @@ PODS:
   - hermes-engine (250829098.0.14):
     - hermes-engine/Pre-built (= 250829098.0.14)
   - hermes-engine/Pre-built (250829098.0.14)
+  - razorpay-pod (1.5.4)
   - RCTDeprecation (0.86.0)
   - RCTRequired (0.86.0)
   - RCTSwiftUI (0.86.0)
@@ -1428,6 +1429,29 @@ PODS:
     - Yoga
   - react-native-encrypted-storage (4.0.3):
     - React-Core
+  - react-native-razorpay (3.0.0):
+    - hermes-engine
+    - razorpay-pod
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - react-native-safe-area-context (5.8.0):
     - hermes-engine
     - RCTRequired
@@ -2007,6 +2031,7 @@ DEPENDENCIES:
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
   - React-mutationobservernativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/mutationobserver`)
   - react-native-encrypted-storage (from `../node_modules/react-native-encrypted-storage`)
+  - react-native-razorpay (from `../node_modules/react-native-razorpay`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-networking (from `../node_modules/react-native/ReactCommon/react/networking`)
@@ -2046,6 +2071,10 @@ DEPENDENCIES:
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+SPEC REPOS:
+  trunk:
+    - razorpay-pod
 
 EXTERNAL SOURCES:
   FBLazyVector:
@@ -2129,6 +2158,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/mutationobserver"
   react-native-encrypted-storage:
     :path: "../node_modules/react-native-encrypted-storage"
+  react-native-razorpay:
+    :path: "../node_modules/react-native-razorpay"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-NativeModulesApple:
@@ -2211,6 +2242,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBLazyVector: b3e7ad108f0d882e30445c5527d774e3fd432f3d
   hermes-engine: 75458e8d517a20f7027ff24245b2ed2457ad2a14
+  razorpay-pod: 3ba80419f3315352d6ffa336a194ad95ab249700
   RCTDeprecation: 2a74a2c57675e64419bd89078efde81f7c1de90b
   RCTRequired: 30451112e6fef4e6f31b4e7eee0845156e35e4b0
   RCTSwiftUI: 5aaf0b07e747ba749dc6acc94d8bd41eea4b570f
@@ -2249,6 +2281,7 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: 2eb3f49d0d8e77b5343455eccd057010b8d38b6b
   React-mutationobservernativemodule: f0a0d5ae9b51caf7becbeabf836d716cfedb6bf2
   react-native-encrypted-storage: 569d114e329b1c2c2d9f8c84bcdbe4478dda2258
+  react-native-razorpay: e6ad1261209cdbac15dd3dab4db2a5f7461fd295
   react-native-safe-area-context: fb5c8ee9f6dd62ef710611b3d370c501f42a4ac0
   React-NativeModulesApple: a092d89b58f635ebfab88048b0eda9fb516819fd
   React-networking: 968bbbe73590149feb1e72b2af4f6a68e4796ece
@@ -2291,4 +2324,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 5cd75c71cad26afb358ded6f46e2ca12b5e8a7ba
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

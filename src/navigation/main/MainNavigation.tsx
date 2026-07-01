@@ -29,6 +29,10 @@ const MainStack = () => {
         component={screens.OrderDetailScreen}
       />
       <Stack.Screen name={Routes.RETURN} component={screens.ReturnsScreen} />
+      <Stack.Screen
+        name={Routes.CONFIRMATION}
+        component={screens.ConfirmationScreen}
+      />
     </Stack.Navigator>
   );
 };

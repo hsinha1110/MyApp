@@ -11,5 +11,5 @@ export { default as CheckOutScreen } from '../screens/main/checkout/CheckOutScre
 export { default as PaymentScreen } from '../screens/main/payment/PaymentScreen';
 export { default as OrdersScreen } from '../screens/main/orders/OrdersScreen';
 export { default as ReturnsScreen } from '../screens/main/returns/ReturnsScreen';
-export { default as ProductScreen } from '../screens/main/products/ProductScreen';
 export { default as ProductDetailsScreen } from '../screens/main/products/ProductDetailScreen';
+export { default as ConfirmationScreen } from '../screens/main/confirmation/ConfirmationScreen';

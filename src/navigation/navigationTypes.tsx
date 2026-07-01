@@ -24,5 +24,9 @@ export type MainStackParamList = {
   [Routes.ORDER_DETAIL]: {
     orderId: string;
   };
+  [Routes.CONFIRMATION]: {
+    order: any;
+    payment?: any;
+  };
   [Routes.RETURN]: undefined;
 };

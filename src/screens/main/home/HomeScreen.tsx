@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
-
-import WrapperContainer from '@/components/Wrapper/WrapperContainer';
-import useStyles from '@/screens/main/home/HomeScreen.styles';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getProductsAsyncThunk } from '@/redux/thunk/getProductThunk';
-import ProductItem from '../products/ProductItem';
+import { navigate } from '@/utils/navigationUtils';
+import { Routes } from '@/constants/routes';
+import WrapperContainer from '@/components/Wrapper/WrapperContainer';
+import ErrorState from '@/components/ErrorState/ErrorState';
+import EmptyState from '@/components/EmptyState/EmptyState';
+import ProductCard from '@/components/ProductCard/ProductCard';
+import useStyles from '@/screens/main/home/HomeScreen.styles';
 import Colors from '@/styles/colors';
+import CartHeader from '@/components/CartHeader/CartHeader';
 
 const HomeScreen: React.FC = () => {
-  const { products, loading, error } = useAppSelector(state => state.product);
-
   const dispatch = useAppDispatch();
   const styles = useStyles();
+
+  const { products, loading, error } = useAppSelector(state => state.product);
 
   useEffect(() => {
     dispatch(getProductsAsyncThunk());
@@ -21,15 +25,9 @@ const HomeScreen: React.FC = () => {
   if (loading) {
     return (
       <WrapperContainer style={styles.container}>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <View style={styles.loaderContainer}>
           <ActivityIndicator size="large" color={Colors.primary} />
-          <Text>Loading products...</Text>
+          <Text style={styles.loadingText}>Loading products...</Text>
         </View>
       </WrapperContainer>
     );
@@ -37,27 +35,43 @@ const HomeScreen: React.FC = () => {
 
   if (error) {
     return (
-      <WrapperContainer style={styles.container}>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Text style={{ color: 'red' }}>{error}</Text>
-        </View>
-      </WrapperContainer>
+      <ErrorState
+        message={error}
+        onRetry={() => dispatch(getProductsAsyncThunk())}
+      />
+    );
+  }
+
+  if (!products.length) {
+    return (
+      <EmptyState
+        title="No Products Found"
+        description="There are no products available."
+        buttonTitle="Refresh"
+        onPress={() => dispatch(getProductsAsyncThunk())}
+      />
     );
   }
 
   return (
     <WrapperContainer style={styles.container}>
+      <CartHeader title="Products" />
+
       <FlatList
-        showsVerticalScrollIndicator={false}
         data={products}
         keyExtractor={item => item._id}
-        renderItem={({ item }) => <ProductItem item={item} />}
+        renderItem={({ item }) => (
+          <ProductCard
+            item={item}
+            onPress={() =>
+              navigate(Routes.PRODUCT_DETAILS, {
+                productId: item._id,
+              })
+            }
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.listContainer}
       />
     </WrapperContainer>
   );

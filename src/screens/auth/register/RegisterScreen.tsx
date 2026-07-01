@@ -1,23 +1,22 @@
 import React from 'react';
 import { View } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { RegisterFormData, RegisterRequest } from '@/typing/auth.types';
+import { useAppDispatch } from '@/redux/hooks';
+import { registerAsyncThunk } from '@/redux/thunk/registerThunk';
+import { registerSchema } from '@/validations/authValidations';
+import { navigate } from '@/utils/navigationUtils';
+import { Routes } from '@/constants/routes';
+import useStyles from '@/screens/auth/register/RegisterScreen.styles';
 
 import Colors from '@/styles/colors';
 import AppText from '@/components/AppText/AppText';
 import AppInput from '@/components/AppInput/AppInput';
 import AppButton from '@/components/AppButton/AppButton';
 import WrapperContainer from '@/components/Wrapper/WrapperContainer';
-
-import { Controller, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import useStyles from '@/screens/auth/register/RegisterScreen.styles';
-import { RegisterFormData, RegisterRequest } from '@/typing/auth.types';
-import { useAppDispatch } from '@/redux/hooks';
-import { registerAsyncThunk } from '@/redux/thunk/registerThunk';
-import { registerSchema } from '@/validations/authValidations';
-import { moderateScale } from 'react-native-size-matters';
-import { goBack, navigate } from '@/utils/navigationUtils';
-import { Routes } from '@/constants/routes';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const RegisterScreen = () => {
   const styles = useStyles();

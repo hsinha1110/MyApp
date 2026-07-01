@@ -1,9 +1,9 @@
-interface Profile {
+export interface Profile {
   firstName: string;
   lastName: string;
 }
 
-interface Address {
+export interface Address {
   _id: string;
   label: string;
   fullName: string;
@@ -17,7 +17,7 @@ interface Address {
   isDefault: boolean;
 }
 
-interface User {
+export interface User {
   _id: string;
   email: string;
   phone: string;
@@ -26,7 +26,7 @@ interface User {
   addresses: Address[];
 }
 
-interface AuthState {
+export interface AuthState {
   user: User | null;
   accessToken: string | null;
   refreshToken: string | null;
@@ -34,3 +34,35 @@ interface AuthState {
   loading: boolean;
   error: string | null;
 }
+
+export interface CartState {
+  cart: any;
+  loading: boolean;
+  error: string | null;
+}
+
+export const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'pending':
+    case 'pending_payment':
+      return '#F59E0B';
+
+    case 'confirmed':
+      return '#2563EB';
+
+    case 'processing':
+      return '#8B5CF6';
+
+    case 'shipped':
+      return '#0EA5E9';
+
+    case 'delivered':
+      return '#16A34A';
+
+    case 'cancelled':
+      return '#DC2626';
+
+    default:
+      return '#6B7280';
+  }
+};

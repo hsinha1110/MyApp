@@ -4,8 +4,7 @@ import WrapperContainer from '@/components/Wrapper/WrapperContainer';
 import AppButton from '@/components/AppButton/AppButton';
 import AppText from '@/components/AppText/AppText';
 import useStyles from '@/components/EmptyState/EmptyState.styles';
-
-
+import { EmptyStateProps } from '@/components/types';
 
 const EmptyState: React.FC<EmptyStateProps> = ({
   title = 'No Data Found',

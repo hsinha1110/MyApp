@@ -12,6 +12,10 @@ import {
 
 import loginReducer from '@/redux/slices/loginSlice';
 import productReducer from '@/redux/slices/productSlice';
+import cartReducer from '@/redux/slices/cartSlice';
+import addressReducer from '@/redux/slices/addressSlice';
+import paymentReducer from '@/redux/slices/paymentOptionsSlice';
+import orderReducer from '@/redux/slices/orderSlice';
 import { secureStorage } from '@/utils/secureStorage';
 
 const persistConfig = {
@@ -23,6 +27,10 @@ const persistConfig = {
 const rootReducer = combineReducers({
   login: loginReducer,
   product: productReducer,
+  cart: cartReducer,
+  address: addressReducer,
+  payment: paymentReducer,
+  orders: orderReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

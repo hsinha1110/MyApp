@@ -37,3 +37,46 @@ export interface AppTextProps extends TextProps {
   size?: number;
   weight?: '400' | '500' | '600' | '700' | '800' | 'bold' | 'normal';
 }
+export interface EmptyStateProps {
+  title?: string;
+  description?: string;
+  buttonTitle?: string;
+  onPress?: () => void;
+}
+
+export interface QuantityStepperProps {
+  quantity: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
+}
+
+export interface PriceSummaryProps {
+  subtotal: number;
+  discount: number;
+  shipping: number;
+  tax: number;
+  total: number;
+}
+
+export interface PaymentMethodCardProps {
+  selectedMethod: 'cod' | 'razorpay';
+  onChange: (method: 'cod' | 'razorpay') => void;
+}
+
+export interface Product {
+  _id: string;
+  name: string;
+  price: number;
+  images: string[];
+  rating?: number;
+}
+
+export interface ProductCardProps {
+  item: Product;
+  onPress: () => void;
+  onAddToCart?: () => void;
+  onWishlist?: () => void;
+}
+export interface CartHeaderProps {
+  title?: string;
+}

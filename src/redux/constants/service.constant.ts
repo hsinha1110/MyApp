@@ -10,16 +10,23 @@ export const SERVICE_ROUTES = {
   LOGIN: getApiUrl('/auth/login'),
   REGISTER: getApiUrl('/auth/register'),
   GET_PRODUCTS: getApiUrl('/products'),
-  CART: getApiUrl('/carts/me'),
+  GET_PRODUCTS_BY_ID: getApiUrl('/products/:id'),
+  GET_CART: getApiUrl('/carts/me'),
+  UPDATE_CART: getApiUrl('/carts/me'),
   ORDER_QUOTE: getApiUrl('/orders/quote'),
   PLACE_ORDER: getApiUrl('/orders'),
-  ORDERS: getApiUrl('/orders'),
+  ORDERS: getApiUrl('/orders/me'),
   ORDER_DETAILS: getApiUrl('/orders/:orderId'),
   ADDRESS: getApiUrl('/users/me/addresses'),
   RETURNS: getApiUrl('/returns'),
   PAYMENT_OPTIONS: getApiUrl('/payments/options'),
+  QUOTE: getApiUrl('/orders/quote'),
 } as const;
 
+export const PAGINATION = {
+  DEFAULT_PAGE: 1,
+  DEFAULT_LIMIT: 10,
+};
 //=================== METHODS ==============================
 export const METHODS = {
   GET: 'GET',

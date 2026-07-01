@@ -1,5 +1,15 @@
 // ================= REQUEST =================
-
+export interface User {
+  _id: string;
+  email: string;
+  phone: string;
+  profile: {
+    firstName: string;
+    lastName: string;
+  };
+  createdAt?: string;
+  updatedAt?: string;
+}
 export interface LoginFormData {
   email: string;
   password: string;
